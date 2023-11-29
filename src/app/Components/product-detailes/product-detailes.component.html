@@ -1,0 +1,18 @@
+<div class="container text-light bg-dark text-center my-5 py-5 rounded">
+  <div class="row">
+    <div class="col-12 my-3">
+      <h1 class="bg-secondary py-3 rounded">Product id :{{ productId }}</h1>
+    </div>
+    <div class="col-12">
+      <h2>Product Name : {{ product?.productName }}</h2>
+      <h2>Product Price : {{ product?.productPrice }}</h2>
+      <h2>Product Quantity : {{ product?.productQuantity }}</h2>
+      <button
+        [routerLink]="['/products']"
+        class="btn btn-outline-danger py-2 px-3 my-4"
+      >
+        Back to Products
+      </button>
+    </div>
+  </div>
+</div>

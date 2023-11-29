@@ -1,0 +1,51 @@
+<div class="container my-3 py-5 rounded px-5 text-center">
+  <h1 class="lead fs-1 mb-4 rounded-4 bg-secondary bg-opacity-25 p-4">
+    Products Section
+  </h1>
+  <button [routerLink]="['/products/0/edit']" class="btn btn-outline-info mb-3">
+    Add Product
+  </button>
+  <div class="row text-center">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of productsArr">
+            <th scope="row ">{{ product.id }}</th>
+            <td>{{ product.productName }}</td>
+            <td>{{ product.productPrice | currency }}</td>
+            <td>{{ product.productQuantity }}</td>
+            <td>
+              <button
+                (click)="deleteProduct(product.id)"
+                class="btn btn-danger me-1"
+              >
+                Delete
+              </button>
+              <button
+                [routerLink]="['/products', product.id, 'edit']"
+                class="btn btn-primary me-1"
+              >
+                Edit
+              </button>
+              <button
+                [routerLink]="['/products', product.id]"
+                class="btn btn-warning"
+              >
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

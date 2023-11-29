@@ -1,0 +1,90 @@
+<div class="container my-3 py-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-12 col-lg-6">
+      <form [formGroup]="ProductForm" (submit)="handleForm($event)">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Product Name</label
+          >
+          <input
+            formControlName="productName"
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Product Name"
+          />
+          <ng-container *ngIf="getProductName.touched">
+            <div
+              *ngIf="getProductName.hasError('required')"
+              id="nameHelp"
+              class="form-text text-danger"
+            >
+              product name is req
+            </div>
+            <div
+              *ngIf="getProductName.hasError('minlength')"
+              id="nameHelp"
+              class="form-text text-danger"
+            >
+              length must be more than 5
+            </div>
+          </ng-container>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Price</label>
+          <input
+            formControlName="productPrice"
+            type="number"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Enter Price"
+          />
+          <ng-container *ngIf="getProductPrice.touched">
+            <div
+              *ngIf="getProductPrice.hasError('required')"
+              id="priceHelp"
+              class="form-text text-danger"
+            >
+              Price is req
+            </div>
+            <div
+              *ngIf="getProductPrice.hasError('min')"
+              id="priceHelp"
+              class="form-text text-danger"
+            >
+              Min Price is 10
+            </div>
+          </ng-container>
+        </div>
+        <label for="exampleInputPassword1" class="form-label">Quantity</label>
+        <input
+          formControlName="productQuantity"
+          type="number"
+          class="form-control"
+          id="exampleInputPassword2"
+          placeholder="Enter Quantity"
+        />
+        <ng-container *ngIf="getProductQuantity.touched">
+          <div
+            *ngIf="getProductQuantity.hasError('required')"
+            id="quantityHelp"
+            class="form-text text-danger"
+          >
+            Quantity is req
+          </div>
+          <div
+            *ngIf="getProductQuantity.hasError('min')"
+            id="quantityHelp"
+            class="form-text text-danger"
+          >
+            Min Quantity is 1
+          </div>
+        </ng-container>
+        <button type="submit" class="btn btn-primary my-4">
+          {{ productId == 0 ? "Add Product" : "Edit Product" }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

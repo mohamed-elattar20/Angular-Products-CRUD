@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "productName": "iphone 11",
+      "productPrice": 15000,
+      "productQuantity": 2,
+      "id": 1
+    },
+    {
+      "productName": "samsung s11",
+      "productPrice": 7000,
+      "productQuantity": 23,
+      "id": 2
+    }
+  ]
+}
